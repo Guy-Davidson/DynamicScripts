@@ -144,3 +144,17 @@ Start-Sleep -Seconds 2
 "Getting 100 values from B, (that will try to fill in from A) response is:"
 curl -X POST ${PUBLIC_IP_B}:5000/pullCompleted?top=100
 "`r`n"
+Start-Sleep -Seconds 5
+
+"Check that A is ready for reuse, response is:"  
+curl -X GET ${PUBLIC_IP_A}:5000/info
+"`r`n"
+Start-Sleep -Seconds 5
+
+"Check that B is ready for reuse, response is:"
+curl -X GET ${PUBLIC_IP_B}:5000/info
+"`r`n"
+Start-Sleep -Seconds 5
+
+"Finish."
+exit
